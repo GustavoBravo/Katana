@@ -80,6 +80,7 @@ var katana = {
 	css: function(opc){
 		for(var name in opc){
 			//this.style.name = opc[name]
+			//agregue comentario para prueba de commit en github
 			eval("this.style."+name+"= opc[name]");
 		}
 	}
