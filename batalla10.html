@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<HTML lang="en-US">
+	<HEAD>
+		<meta charset="UTF-8">
+		<title>Framework</title>
+		<script type="text/javascript" src="js/katana.js"></script>
+		<style type="text/css">
+			*{margin: 0;}
+			#container{
+				width: 1024px;
+				border: solid 1px #ccc;
+				min-height: 500px;
+				font-size: 18px;
+				font-family: "sans-sherif";
+				color: #F3F3F3;
+			}
+			.header{
+				width: 100%;
+				background: #ccc;
+			}
+			.header h1{
+				font-size: 32px;
+				width: 100%;
+				text-align: center;
+			}
+			.header nav{
+				width: 100%;
+				text-align: right;
+			}
+			.header nav ul li{
+				display: inline-block;
+				width: 150px;
+			}
+			.header nav a{
+				text-decoration: none;
+				color: orange;
+			}
+			.header nav a:hover{
+				text-decoration: underline;
+				color: blue;
+			}
+			.wrapper{
+
+			}
+			.footer{
+
+			}
+		</style>
+	</HEAD>
+	<BODY>
+		<div id="container">
+		</div>
+		<script type="text/x-javascript">
+			(function(){
+				/*1 console.log($.extend("container"));*/
+				/*2 $.obt("container").innertHTML= "hola gente";*/
+				/*3 $.obt('container').esc("hola gente");*/
+				/*4 var div = $.crear('div');
+				div.id= "header";
+				$.obt('container').metele(div);*/
+				/*5 var h = $.crear("div","header");
+				var w = $.crear("div","wrapper");
+				var f = $.crear("div","footer");
+				$.obt('container').metele(h);
+				$.obt('container').metele(w);
+				$.obt('container').metele(f);*/
+				
+				//----------- HEADER ----------------
+				var opch = {
+					"id":"header",
+					"class":"header"
+				}
+				var h = $.crear("div",opch);
+				
+				var h1 = $.crear("h1");
+				h1.esc("Titulo");
+				h1.css({"color":"#F35798"});
+				h.metele(h1);
+
+				var opcNav ={
+					"id":"nav"
+				}
+				//--------  NAV ---------------
+				//var nav = $.crear("nav",opcNav); esto no es asi porque nav es un tag 
+				var nav = $.crear("nav");
+				//console.log(nav);
+				
+				//-------- UL ----------------
+				var opcNavUl ={
+					"id":"ul"
+				}
+				var ul = $.crear("ul",opcNavUl);
+
+				//----------- LI con A ----------------
+				var menu = new Array("INICIO","CONTACTO","SERVICIO");
+				for (var i = 0; i < 3; i++) {
+					var opcNavUlLi ={
+					"id":"li"+i
+					}
+					var li = $.crear("li",opcNavUlLi);
+					var opcA ={
+						"href":"javascript:void(0);"
+					}
+					var a = $.crear("a",opcA);
+					a.esc(menu[i]);
+					
+					li.metele(a);
+					ul.metele(li);
+				};
+
+				nav.metele(ul);
+				h.metele(nav);
+				//----------- WRAPPER ----------------
+				var opcw = {
+					"id":"wrapper",
+					"class":"wrapper"
+				}
+				var w = $.crear("div",opcw);
+
+				var formulario = $.crear('form');
+				
+				var opcIn = {
+					"id":"nombre",
+					"placeholder":"Ingrese Nombre"
+				}
+				
+				var nombre = $.crear("input",opcIn);
+				var opcOb = {
+					"vacio": true,
+					"letra": true,
+					"correo": true,
+					"max": 10
+				}
+				nombre.obliga(opcOb);
+
+				formulario.metele(nombre);
+				w.metele(formulario);
+				//----------- FOOTER ----------------
+				var opcf= {
+					"id":"footer",
+					"class":"footer"
+				}
+				
+				
+				var f = $.crear("div",opcf);
+				$.obt('container').metele(h);
+				$.obt('container').metele(w);
+				$.obt('container').metele(f)
+			})();
+		</script>
+	</BODY>
+</HTML>
